@@ -348,7 +348,7 @@ export default createContainer(ownProps => {
   const gameFetch = Games.find({ gameCode: gameCode }).fetch();
   const game = gameFetch.length > 0 ? gameFetch[0] : {};
   const currentPlayer = game.player
-    ? game.player.find(player => player.name === localStorage.getItem('name'))
+     ? game.player.find(player => player.name === localStorage.getItem('name'))
     : {};
 
   return { name: localStorage.getItem('name'), game, currentPlayer };
