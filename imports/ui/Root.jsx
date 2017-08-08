@@ -34,25 +34,25 @@ const style = {
 
 const buttons = {
   // border: '1px solid blue',
-  margin: 'auto',
-  width: '50%'
+  margin: "auto",
+  width: "50%"
   // display: 'flex',
   // flexDirection: 'column',
 };
 
 const button = {
   marginBottom: 30,
-  display: 'flex',
-  width: '100%',
+  display: "flex",
+  width: "100%",
   height: 60
 };
 
 const text = {
   // border: '1px solid blue',
-  fontWeight: '700',
-  fontFamily: 'Work Sans',
-  color: '#FD7400',
-  textAlign: 'center',
+  fontWeight: "700",
+  fontFamily: "Work Sans",
+  color: "#FD7400",
+  textAlign: "center",
   // margin: 'auto',
   fontSize: 60,
   marginTop: 50
@@ -82,7 +82,7 @@ class Root extends Component {
   }
 
   createNewGame() {
-    Meteor.call('games.insert', this.state.playerName, (err, gameCode) => {
+    Meteor.call("games.insert", this.state.playerName, (err, gameCode) => {
       if (!err) {
         localStorage.setItem('name', this.state.playerName);
         localStorage.setItem('gameCode', gameCode);
@@ -159,9 +159,9 @@ class Root extends Component {
           <div
             style={{
               fontSize: 15,
-              fontFamily: 'Lato',
+              fontFamily: "Lato",
               fontWeight: 400,
-              width: '100%',
+              width: "100%",
               color: Colors.tertiary
             }}
           >
@@ -190,8 +190,8 @@ class Root extends Component {
         <div>
           <Dialog
             style={{
-              margin: 'auto',
-              textAlign: 'center'
+              margin: "auto",
+              textAlign: "center"
             }}
             title='Please, type your username'
             actions={actionsNew}
