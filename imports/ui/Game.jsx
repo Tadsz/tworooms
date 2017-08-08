@@ -177,18 +177,6 @@ class Game extends React.Component {
   }
 
   startPauselabel() {
-    if (this.props.game.running) {
-      return (
-        <PauseIcon
-          style={{
-            height: 40,
-            width: 40,
-            margin: 10
-          }}
-          color='white'
-        />
-      );
-    }
     return (
       <PlayIcon
         style={{
