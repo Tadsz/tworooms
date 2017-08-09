@@ -89,7 +89,7 @@ class Lobby extends React.Component {
         localStorage.setItem('gameCode', this.state.code);
         localStorage.removeItem('admin');
       } else {
-        alert('Could not join game.');
+        alert('Something bad happened.');
       }
       this.setState({open: false});
     });
