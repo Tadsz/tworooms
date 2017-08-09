@@ -1,18 +1,18 @@
-import RaisedButton from "material-ui/RaisedButton";
-import React, { PropTypes } from "react";
-import TextField from "material-ui/TextField";
-import Dialog from "material-ui/Dialog";
+import RaisedButton from 'material-ui/RaisedButton';
+import React, { PropTypes } from 'react';
+import TextField from 'material-ui/TextField';
+import Dialog from 'material-ui/Dialog';
 import {
   Card,
   CardMedia,
   CardTitle,
   CardHeader,
   CardText
-} from "material-ui/Card";
-import { List, ListItem } from "material-ui/List";
-import ActionGrade from "material-ui/svg-icons/action/grade";
-import Divider from "material-ui/Divider";
-import Avatar from "material-ui/Avatar";
+} from 'material-ui/Card';
+import { List, ListItem } from 'material-ui/List';
+import ActionGrade from 'material-ui/svg-icons/action/grade';
+import Divider from 'material-ui/Divider';
+import Avatar from 'material-ui/Avatar';
 import {
   grey400,
   pinkA200,
@@ -20,18 +20,18 @@ import {
   blue500,
   red500,
   greenA200
-} from "material-ui/styles/colors";
-import IconButton from "material-ui/IconButton";
-import MoreVertIcon from "material-ui/svg-icons/navigation/more-vert";
-import IconMenu from "material-ui/IconMenu";
-import MenuItem from "material-ui/MenuItem";
-import { createContainer } from "meteor/react-meteor-data";
-import { Games } from "../api/games.js";
-import { browserHistory } from "react-router";
-import { Meteor } from "meteor/meteor";
-import Timer from "./Timer";
-import PlayerCard from "./PlayerCard";
-import { Tabs, Tab } from "material-ui/Tabs";
+} from 'material-ui/styles/colors';
+import IconButton from 'material-ui/IconButton';
+import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
+import IconMenu from 'material-ui/IconMenu';
+import MenuItem from 'material-ui/MenuItem';
+import { createContainer } from 'meteor/react-meteor-data';
+import { Games } from '../api/games.js';
+import { browserHistory } from 'react-router';
+import { Meteor } from 'meteor/meteor';
+import Timer from './Timer';
+import PlayerCard from './PlayerCard';
+import { Tabs, Tab } from 'material-ui/Tabs';
 // From https://github.com/oliviertassinari/react-swipeable-views
 import SwipeableViews from "react-swipeable-views";
 import FontIcon from "material-ui/FontIcon";
@@ -56,14 +56,14 @@ const containerStyle = {
   margin: "0 auto",
   width: "100%",
   // padding: 20,
-  display: "flex"
+  display: 'flex'
 };
 
 const CardStyle = {
   padding: 40,
   fontSize: 20,
-  margin: "auto",
-  textAlign: "center"
+  margin: 'auto',
+  textAlign: 'center'
 };
 const iconStyles = {
   marginRight: 24
@@ -88,8 +88,8 @@ class Game extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      minutes: "03",
-      seconds: "00",
+      minutes: '03',
+      seconds: '00',
       slideIndex: 0
     };
     setInterval(() => {
@@ -118,7 +118,7 @@ class Game extends React.Component {
 
   leftPad(number) {
     number = Math.floor(number);
-    var output = number + "";
+    var output = number + '';
     while (output.length < 2) {
       output = "0" + output;
     }
@@ -145,14 +145,14 @@ class Game extends React.Component {
       } else {
         this.setState({
           minutes: `0${3 - this.props.game.round}`,
-          seconds: "00"
+          seconds: '00'
         });
       }
     }
   }
 
   nextRound() {
-    Meteor.call("games.nextRound", this.props.params.gameCode);
+    Meteor.call('games.nextRound', this.props.params.gameCode);
 
     if (this.props.game.round <= 2) {
       // pause timer
@@ -163,7 +163,7 @@ class Game extends React.Component {
   }
 
   toggleTimer() {
-    Meteor.call("games.toggleTimer", this.props.params.gameCode);
+    Meteor.call('games.toggleTimer', this.props.params.gameCode);
   }
 
   startPause() {
@@ -171,24 +171,12 @@ class Game extends React.Component {
   }
   nextGameLabel() {
     if (this.props.game.round > 2) {
-      return "END GAME";
+      return 'END GAME';
     }
-    return "NEXT ROUND";
+    return 'NEXT ROUND';
   }
 
   startPauselabel() {
-    if (this.props.game.running) {
-      return (
-        <PauseIcon
-          style={{
-            height: 40,
-            width: 40,
-            margin: 10
-          }}
-          color="white"
-        />
-      );
-    }
     return (
       <PlayIcon
         style={{
@@ -206,22 +194,22 @@ class Game extends React.Component {
   //======================================================
 
   renderPlayerFeatures() {
-    const admin = localStorage.getItem("admin");
+    const admin = localStorage.getItem('admin');
     if (admin) {
       return (
         <div
           style={{
-            margin: "auto",
-            display: "flex"
+            margin: 'auto',
+            display: 'flex'
           }}
         >
           <RaisedButton
-            backgroundColor="#BEDB39"
-            labelColor="white"
+            backgroundColor='#BEDB39'
+            labelColor='white'
             style={{
-              margin: "auto",
-              display: "flex",
-              width: "90%",
+              margin: 'auto',
+              display: 'flex',
+              width: '90%',
               height: 60
             }}
             label={this.startPauselabel()}
@@ -231,11 +219,11 @@ class Game extends React.Component {
             backgroundColor="#BEDB39"
             labelColor="white"
             style={{
-              margin: "auto",
-              display: "flex",
-              width: "90%",
+              margin: 'auto',
+              display: 'flex',
+              width: '90%',
               height: 60,
-              color: "blue"
+              color: 'blue'
             }}
             label={this.nextGameLabel()}
             onTouchTap={() => this.nextRound()}
@@ -286,8 +274,8 @@ class Game extends React.Component {
         <Tabs
           style={{
             height: 60,
-            backgroundColor: "#BEDB39",
-            color: "white"
+            backgroundColor: '#BEDB39',
+            color: 'white'
           }}
           onChange={this.handleChange.bind(this)}
           value={this.state.slideIndex}
@@ -295,15 +283,15 @@ class Game extends React.Component {
           <Tab
             label="Game Status"
             style={{
-              backgroundColor: "#BEDB39",
-              color: "white"
+              backgroundColor: '#BEDB39',
+              color: 'white'
             }}
             value={0}
           />
           <Tab
             style={{
-              backgroundColor: "#BEDB39",
-              color: "white"
+              backgroundColor: '#BEDB39',
+              color: 'white'
             }}
             label="Card"
             value={1}
@@ -326,7 +314,7 @@ class Game extends React.Component {
           </div>
           <div style={styles.slide}>
             <PlayerCard
-              style={{ margin: "auto" }}
+              style={{ margin: 'auto' }}
               card={this.props.currentPlayer.card}
             />
           </div>
@@ -348,8 +336,8 @@ export default createContainer(ownProps => {
   const gameFetch = Games.find({ gameCode: gameCode }).fetch();
   const game = gameFetch.length > 0 ? gameFetch[0] : {};
   const currentPlayer = game.player
-    ? game.player.find(player => player.name === localStorage.getItem("name"))
+    ? game.player.find(player => player.name === localStorage.getItem('name'))
     : {};
 
-  return { name: localStorage.getItem("name"), game, currentPlayer };
+  return { name: localStorage.getItem('name'), game, currentPlayer };
 }, Game);

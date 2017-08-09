@@ -1,31 +1,31 @@
-import React, { Component } from "react";
-import RaisedButton from "material-ui/RaisedButton";
-import TextField from "material-ui/TextField";
-import Dialog from "material-ui/Dialog";
-import Card from "material-ui/Card";
-import { browserHistory } from "react-router";
-import "../../client/main.css";
-import { Games } from "../api/games.js";
-import Divider from "material-ui/Divider";
-import Colors from "../../client/colors";
-import { Meteor } from "meteor/meteor";
-import { createContainer } from "meteor/react-meteor-data";
+import React, { Component } from 'react';
+import RaisedButton from 'material-ui/RaisedButton';
+import TextField from 'material-ui/TextField';
+import Dialog from 'material-ui/Dialog';
+import Card from 'material-ui/Card';
+import { browserHistory } from 'react-router';
+import '../../client/main.css';
+import { Games } from '../api/games.js';
+import Divider from 'material-ui/Divider';
+import Colors from '../../client/colors';
+import { Meteor } from 'meteor/meteor';
+import { createContainer } from 'meteor/react-meteor-data';
 
 const containerStyle = {
-  margin: "auto",
-  display: "flex",
-  width: "100%",
-  height: "100vh",
-  flexDirection: "column"
+  margin: 'auto',
+  display: 'flex',
+  width: '100%',
+  height: '100vh',
+  flexDirection: 'column'
 };
 
 const LoginStyle = {
-  display: "flex",
-  flex: "column",
+  display: 'flex',
+  flex: 'column',
   padding: 49,
   fontSize: 20,
   // marginBottom: 15,
-  textAlign: "center"
+  textAlign: 'center'
 };
 
 const style = {
@@ -65,8 +65,8 @@ class Root extends Component {
     this.state = {
       newGame: false,
       open: false,
-      playerName: "",
-      code: ""
+      playerName: '',
+      code: ''
     };
   }
 
@@ -85,28 +85,28 @@ class Root extends Component {
   createNewGame() {
     Meteor.call("games.insert", this.state.playerName, (err, gameCode) => {
       if (!err) {
-        localStorage.setItem("name", this.state.playerName);
-        localStorage.setItem("gameCode", gameCode);
-        localStorage.setItem("admin", true);
+        localStorage.setItem('name', this.state.playerName);
+        localStorage.setItem('gameCode', gameCode);
+        localStorage.setItem('admin', true);
         browserHistory.push(`lobby/${gameCode}`);
       } else {
-        alert("Couldn't create game.");
+        alert('Couldn\'t create game.');
       }
     });
   }
 
   joinGame() {
     Meteor.call(
-      "games.addPlayer",
+      'games.addPlayer',
       this.state.code,
       this.state.playerName,
       err => {
         if (!err) {
-          localStorage.setItem("name", this.state.playerName);
-          localStorage.setItem("gameCode", this.state.code);
+          localStorage.setItem('name', this.state.playerName);
+          localStorage.setItem('gameCode', this.state.code);
           browserHistory.push(`lobby/${this.state.code}`);
         } else {
-          alert("Couldn't add player.");
+          alert('Couldn\'t add player.');
         }
       }
     );
@@ -119,7 +119,7 @@ class Root extends Component {
 
     const actionsNew = [
       <RaisedButton
-        style={{display: 'flex', margin:'auto', height: 60}}
+        style={{ display: 'flex', margin:'auto', height: 60 }}
         disabled={newActive}
         label="OK"
         backgroundColor={Colors.primary}
@@ -128,7 +128,7 @@ class Root extends Component {
         onTouchTap={this.createNewGame.bind(this)}
       />,
       <RaisedButton
-        style={{ display: "flex", margin: "auto", height: 60 }}
+        style={{ display: 'flex', margin: 'auto', height: 60 }}
         label="Cancel"
         // secondary={true}
         onTouchTap={this.handleClose.bind(this)}
@@ -136,7 +136,7 @@ class Root extends Component {
     ];
     const actionsJoin = [
       <RaisedButton
-        style={{display: 'flex', margin:'auto', height: 60}}
+        style={{ display: 'flex', margin:'auto', height: 60 }}
         disabled={joinActive}
         label="Submit"
         labelColor="white"
@@ -148,9 +148,8 @@ class Root extends Component {
       />,
       <Divider />,
       <RaisedButton
-        style={{ display: "flex", margin: "auto", height: 60 }}
+        style={{ display: 'flex', margin: 'auto', height: 60 }}
         label="Cancel"
-        // secondary={true}
         onTouchTap={this.handleClose.bind(this)}
       />
     ];
@@ -170,11 +169,11 @@ class Root extends Component {
               width: "100%",
               color: Colors.tertiary
             }}
-          >
-            Star Wars Edition
+           >
+             Star Wars Edition
           </div>
         </div>
-
+          
         <div style={buttons}>
           <RaisedButton
             backgroundColor={Colors.primary}
@@ -188,7 +187,7 @@ class Root extends Component {
             labelColor="white"
             label="NEW GAME"
             style={button}
-            label= 'JOIN GAME'
+            label='JOIN GAME'
             onTouchTap={this.handleOpenJoin.bind(this)}
           />
         </div>
@@ -208,13 +207,13 @@ class Root extends Component {
               onChange={(event, playerName) => this.setState({playerName})}
             />
           </Dialog>
-
+            
           <Dialog
             style={{margin: 'auto', textAlign: 'center'}}
             actions={actionsJoin}
             modal={true}
             open={this.state.open}
-          >
+            >
             <TextField
               name= "player"
               hintText="Your name (required)"
@@ -232,42 +231,11 @@ class Root extends Component {
         </div>
       </div>
     );
-
-      }
-    }
-
-          <Dialog
-            style={{ margin: "auto", textAlign: "center" }}
-            title="Insert your Username and Game Code"
-            actions={actionsJoin}
-            modal={true}
-            open={this.state.open}
-          >
-            <TextField
-              name="player"
-              hintText="Player"
-              floatingLabelText="Insert your name here"
-              floatingLabelFixed={true}
-              onChange={(event, playerName) => this.setState({ playerName })}
-            />
-            <TextField
-              name="code"
-              hintText="Code"
-              floatingLabelText="Insert your code here"
-              floatingLabelFixed={true}
-              onChange={(event, code) => this.setState({ code })}
-            />
-            <br />
-          </Dialog>
-        </div>
-      </div>
-    );
   }
 }
 
 export default createContainer(() => {
-  Meteor.subscribe("games");
-
+  Meteor.subscribe('games');
   return {
     games: Games.find({}, { sort: { createdAt: -1 } }).fetch()
   };
