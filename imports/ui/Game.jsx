@@ -202,40 +202,37 @@ class Game extends React.Component {
     if (admin) {
       return (
         <div
-          style={{
-            margin: 'auto',
-            display: 'flex'
-          }}
-        >
-          <RaisedButton
-            backgroundColor='#BEDB39'
-            labelColor='white'
-            style={{
-              margin: 'auto',
-              display: 'flex',
-              width: '90%',
-              height: 60
-            }}
-            label={this.startPauselabel()}
-            onTouchTap={() => this.toggleTimer()}
-          />
-          <RaisedButton
-            backgroundColor="#BEDB39"
-            labelColor="white"
-            style={{
-              margin: 'auto',
-              display: 'flex',
-              width: '90%',
-              height: 60,
-              color: 'blue'
-            }}
-            label={this.nextGameLabel()}
-            onTouchTap={() => this.nextRound()}
-          />
+        style={{
+          margin: 'auto',
+          display: 'flex'
+        }}>
+        
+        <RaisedButton
+        backgroundColor='#82A3C0'
+        labelColor='white'
+        style={{
+          margin: 'auto',
+          display: 'flex',
+          width: '90%',
+          height: 60
+        }} label={this.startPauselabel()}
+        onTouchTap={() => this.toggleTimer()} />
+        <RaisedButton
+        backgroundColor='#82A3C0'
+        labelColor='white'
+        style={{
+          margin: 'auto',
+          display: 'flex',
+          width: '90%',
+          height: 60,
+          color: 'blue'
+        }}
+        label={this.nextGameLabel()}
+        onTouchTap={() => this.nextRound()} />
         </div>
-      );
+      )
     }
-    return null;
+    return null;  
   }
 
   renderTimer() {
@@ -257,83 +254,76 @@ class Game extends React.Component {
       </div>
     );
   }
-  renderStatusBar() {
-    if (!this.state) return null;
-    if (this.props.game.running) {
+
+  renderStatusBar(){
+    if (!this.state) return null
+    if (this.props.game.running){
       return (
         <div>
-          <Timer
-            roundTime={this.props.game.timeLeft}
-            progress={
-              (4 - this.props.game.round) * 60000 / this.props.game.timeLeft
-            }
-          />
+        <Timer
+        roundTime={this.props.game.timeLeft}
+        progress={(4-this.props.game.round)*60000/this.props.game.timeLeft}
+        />
         </div>
-      );
+      )
     }
   }
   render() {
     return (
       <div>
         <Tabs
-          style={{
-            height: 60,
-            backgroundColor: '#BEDB39',
-            color: 'white'
-          }}
+        style={{
+          height: 60,
+          backgroundColor:  '#82A3C0',
+          color:'white'}}
           onChange={this.handleChange.bind(this)}
           value={this.state.slideIndex}
-        >
-          <Tab
-            label="Game Status"
+        />
+          <Tab label="Game Status"
             style={{
-              backgroundColor: '#BEDB39',
-              color: 'white'
+              backgroundColor:  '#82A3C0',
+              color:'white'
             }}
             value={0}
           />
           <Tab
             style={{
-              backgroundColor: '#BEDB39',
-              color: 'white'
+              backgroundColor:  '#82A3C0',
+              color:'white'
             }}
-            label="Card"
-            value={1}
+            label="Card" value={1}
           />
         </Tabs>
         <SwipeableViews
           index={this.state.slideIndex}
           onChangeIndex={this.handleChange.bind(this)}
-        >
+        />
           <div style={styles.slide}>
+            <div className="game-status">ROUND { this.props.game.round}</div>
+            <div className="game-status">{this.renderTimer()}</div>
             <div className="game-status">
-              ROUND {this.props.game.round}
-            </div>
-            <div className="game-status">
-              {this.renderTimer()}
-            </div>
-            <div className="game-status">
-              {`Round time ${4 - this.props.game.round} minutes`}
+              {`Round time ${4-this.props.game.round} minutes`}
             </div>
           </div>
           <div style={styles.slide}>
             <PlayerCard
-              style={{ margin: 'auto' }}
+              style={{margin: 'auto'}}
               card={this.props.currentPlayer.card}
             />
           </div>
         </SwipeableViews>
-
-        <div className="bottom-info">
-          <div style={{ padding: 10 }}>
+        <div className='bottom-info'>
+          <div style={{padding:10}}>
             {this.renderStatusBar()}
           </div>
           {this.renderPlayerFeatures()}
         </div>
+          
       </div>
     );
   }
 }
+
 
 export default createContainer(ownProps => {
   const gameCode = ownProps.params.gameCode;

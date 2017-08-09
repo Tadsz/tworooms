@@ -48,15 +48,13 @@ const button = {
 };
 
 const text = {
-  // border: '1px solid blue',
-  fontWeight: "700",
-  fontFamily: "Work Sans",
-  color: "#FD7400",
-  textAlign: "center",
-  // margin: 'auto',
-
-  fontSize: 40,
-  marginTop: 15,
+  perspective: '150px',
+  WebkitPerspective: '150px',
+  fontWeight: '700',
+  fontFamily: 'Work Sans',
+  color: '#E1C91D',
+  textAlign: 'center',
+  fontSize: 50,
 };
 
 class Root extends Component {
@@ -145,8 +143,8 @@ class Root extends Component {
         label="Submit"
         labelColor="white"
         label="OK"
-        backgroundColor={Colors.primary}
-        // primary={true}
+        backgroundColor=  {Colors.primary}
+
         keyboardFocused={true}
         onTouchTap={this.joinGame.bind(this)}
       />,
@@ -161,17 +159,25 @@ class Root extends Component {
     return (
       <div style={containerStyle}>
         <div style={text}>
-          <div>TWO</div>
-          <div>ROOMS</div>
-          <div>AND A</div>
-          <div>BOOM</div>
+          <div style={{
+
+            WebkitTransform: 'rotateX(35deg)',
+            transform: 'rotateX(35deg)',
+            paddingBottom: 15
+          }}>
+            <div>TWO</div>
+            <div>ROOMS</div>
+            <div>AND A</div>
+            <div>BOOM</div>
+          </div>
           <div
             style={{
               fontSize: 15,
               fontFamily: "Lato",
               fontWeight: 400,
-              width: "100%",
-              color: Colors.tertiary
+              width: '100%',
+              color: Colors.tertiary,
+              paddingBottom: 10
             }}
            >
              Star Wars Edition
