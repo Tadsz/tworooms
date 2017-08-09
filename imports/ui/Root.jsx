@@ -70,8 +70,12 @@ class Root extends Component {
     };
   }
 
-  handleOpenNew() {
-    this.setState({ newGame: true });
+  componentWillMount () {
+    localStorage.removeItem('admin');
+  }
+
+  handleOpenNew () {
+    this.setState({newGame: true});
   }
 
   handleOpenJoin() {
