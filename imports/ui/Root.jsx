@@ -94,7 +94,7 @@ class Root extends Component {
         localStorage.setItem('admin', true);
         browserHistory.push(`lobby/${gameCode}`);
       } else {
-        alert('Couldn\'t create game.');
+        alert('Could not create game.');
       }
     });
   }
