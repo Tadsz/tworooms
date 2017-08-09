@@ -95,7 +95,7 @@ class Root extends Component {
         localStorage.setItem('admin', true)
         browserHistory.push(`lobby/${gameCode}`);
       } else {
-        alert('Something bad happened.');
+        alert('Could not create game.');
       }
     });
   }
@@ -107,7 +107,7 @@ class Root extends Component {
         localStorage.setItem('gameCode', this.state.code);
         browserHistory.push(`lobby/${this.state.code}`)
       } else {
-        alert('Something bad happened.');
+        alert('Could not join game.');
       }
     });
   }
