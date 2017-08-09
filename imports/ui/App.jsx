@@ -17,6 +17,13 @@ export default
   render() {
     return (
       <div>
+        <div id="space">
+          <div className="stars"></div>
+          <div className="stars"></div>
+          <div className="stars"></div>
+          <div className="stars"></div>
+          <div className="stars"></div>
+        </div>
         {this.props.children}
       </div>
     );

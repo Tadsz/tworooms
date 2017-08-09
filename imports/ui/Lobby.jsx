@@ -137,7 +137,7 @@ class Lobby extends React.Component {
           label={text}
           disabled={isDisabled}
           onTouchTap={() => this.goToPregame()}
-          backgroundColor="#BEDB39"
+          backgroundColor="#2FFA50"
           labelColor="white"
         />
       );
@@ -147,7 +147,7 @@ class Lobby extends React.Component {
         <RaisedButton
           style={{ margin: "auto", display: "flex", width: "100%" }}
           label="Waiting to Start..."
-          backgroundColor="#BEDB39"
+          backgroundColor="#486377"
           labelColor="white"
         />
       </div>
@@ -160,8 +160,13 @@ class Lobby extends React.Component {
       return currentGame.player.map((player, i) => {
         const you = player.name === this.props.name ? " (you)" : "";
         return (
-          <div key={i}>
-            <ListItem
+          <div key={i} style={{paddingBottom: 2}}>
+            <ListItem style={{
+              color: 'whitesmoke',
+              border: '1px solid gray',
+              borderRadius: 5,
+              background: 'linear-gradient(to right,transparent,rgba(0,0,0,0.65),transparent),url("../../images/player-background.jpg")',
+            }}
               primaryText={`${player.name}${you}`}
               rightAvatar={
                 <Avatar src="https://storage.googleapis.com/material-icons/external-assets/v4/icons/svg/ic_face_black_24px.svg" />
@@ -180,7 +185,7 @@ class Lobby extends React.Component {
         style={{display: 'flex', margin:'auto', height: 60}}
         labelColor="white"
         label="OK"
-        backgroundColor=  {Colors.primary}
+        backgroundColor={Colors.primary}
         keyboardFocused={true}
         onTouchTap={this.joinGame.bind(this)}
       />,
@@ -188,7 +193,6 @@ class Lobby extends React.Component {
       <RaisedButton
         style={{display: 'flex', margin:'auto', height: 60}}
         label="Cancel"
-        // secondary={true}
         onTouchTap={this.handleClose.bind(this)}
       />,
     ];
@@ -205,7 +209,7 @@ class Lobby extends React.Component {
       >
 
         <TextField
-          name= "player"
+          name="player"
           hintText="Your name (required)"
           onChange={(event, playerName) => this.setState({playerName})}
         />
@@ -224,11 +228,12 @@ class Lobby extends React.Component {
             <Card style={{ margin: "auto" }}>
               <List
                 style={{
-                  backgroundColor: "#BEDB39",
+                  backgroundColor: '#82A3C0',
                   color: "white"
                 }}
               >
                 <ListItem
+                  style={{color: 'white'}}
                   primaryText="Code"
                   secondaryText={this.props.params.gameCode}
                   rightIconButton={rightIconMenu}

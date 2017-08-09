@@ -105,8 +105,8 @@ class PreGame extends React.Component {
           onTouchTap={() => this.goToGame()}
           style={{ margin: "auto", display: "flex", width: "100%", height: 60 }}
           label="Start Game"
-          backgroundColor="#BEDB39"
-          labelColor="white"
+          backgroundColor="#2FFA50"
+          labelColor="black"
         />
       );
     }
@@ -114,8 +114,8 @@ class PreGame extends React.Component {
       <RaisedButton
         style={{ margin: "auto", display: "flex", width: "100%" }}
         label="Waiting to Start..."
-        backgroundColor="#BEDB39"
-        labelColor="white"
+        backgroundColor="#CC3934"
+        labelColor="black"
       />
     );
   }
@@ -131,6 +131,12 @@ class PreGame extends React.Component {
           <ListItem
             key={`${i}${player.name}`}
             primaryText={`${player.name}${you}`}
+            style={{
+              color: 'whitesmoke',
+              border: '1px solid gray',
+              borderRadius: 5,
+              background: 'linear-gradient(to right,transparent,rgba(0,0,0,0.65)),url("../../images/player-background.jpg")'
+            }}
             leftAvatar={
               <Avatar src="https://storage.googleapis.com/material-icons/external-assets/v4/icons/svg/ic_face_black_24px.svg" />
             }
@@ -147,7 +153,7 @@ class PreGame extends React.Component {
         <Tabs
           style={{
             height: 60,
-            backgroundColor: "#BEDB39",
+            backgroundColor: "#82A3C0",
             color: "white"
           }}
           onChange={this.handleChange.bind(this)}
@@ -155,7 +161,7 @@ class PreGame extends React.Component {
         >
           <Tab
             style={{
-              backgroundColor: "#BEDB39",
+              backgroundColor: "#82A3C0",
               color: "white"
             }}
             label="Room Distribution"
@@ -164,7 +170,7 @@ class PreGame extends React.Component {
           <Tab
             label="Card"
             style={{
-              backgroundColor: "#BEDB39",
+              backgroundColor: "#82A3C0",
               color: "white"
             }}
             value={1}
@@ -193,8 +199,8 @@ class PreGame extends React.Component {
                 >
                   <ListItem
                     style={{
-                      backgroundColor: "#BEDB39",
-                      color: "white"
+                      backgroundColor: "#82A3C0",
+                      color: "black"
                     }}
                     primaryText="Code"
                     secondaryText={this.props.params.gameCode}

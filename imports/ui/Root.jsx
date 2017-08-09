@@ -52,13 +52,14 @@ const button = {
 
 const text={
   // border: '1px solid blue',
+  perspective: '150px',
+  WebkitPerspective: '150px',
   fontWeight: '700',
   fontFamily: 'Work Sans',
-  color: '#FD7400',
+  color: '#E1C91D',
   textAlign: 'center',
   // margin: 'auto',
-  fontSize: 40,
-  marginTop: '15px',
+  fontSize: 50,
 };
 
 class Root extends Component {
@@ -143,7 +144,6 @@ class Root extends Component {
         labelColor="white"
         label="OK"
         backgroundColor=  {Colors.primary}
-        // primary={true}
         keyboardFocused={true}
         onTouchTap={this.joinGame.bind(this)}
       />,
@@ -151,7 +151,6 @@ class Root extends Component {
       <RaisedButton
         style={{display: 'flex', margin:'auto', height: 60}}
         label="Cancel"
-        // secondary={true}
         onTouchTap={this.handleClose.bind(this)}
       />,
     ];
@@ -160,17 +159,25 @@ class Root extends Component {
       <div style={containerStyle}>
 
         <div style={text}>
-          <div>TWO</div>
-          <div>ROOMS</div>
-          <div>AND A</div>
-          <div>BOOM</div>
+          <div style={{
+
+            WebkitTransform: 'rotateX(35deg)',
+            transform: 'rotateX(35deg)',
+            paddingBottom: 15
+          }}>
+            <div>TWO</div>
+            <div>ROOMS</div>
+            <div>AND A</div>
+            <div>BOOM</div>
+          </div>
           <div
             style={{
               fontSize: 15,
               fontFamily: 'Lato',
               fontWeight: 400,
               width: '100%',
-              color: Colors.tertiary
+              color: Colors.tertiary,
+              paddingBottom: 10
             }}
           >Star Wars Edition
           </div>

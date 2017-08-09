@@ -193,7 +193,7 @@ class Game extends React.Component {
             }}>
 
             <RaisedButton
-              backgroundColor=  "#BEDB39"
+              backgroundColor=  "#82A3C0"
               labelColor="white"
               style={{
                 margin: 'auto',
@@ -203,7 +203,7 @@ class Game extends React.Component {
               }} label={this.startPauselabel()}
               onTouchTap={() => this.toggleTimer()} />
               <RaisedButton
-                backgroundColor=  "#BEDB39"
+                backgroundColor=  "#82A3C0"
                 labelColor="white"
                 style={{
                   margin: 'auto',
@@ -256,19 +256,19 @@ class Game extends React.Component {
                     <Tabs
                       style={{
                         height: 60,
-                        backgroundColor:  "#BEDB39",
+                        backgroundColor:  "#82A3C0",
                         color:'white'}}
                         onChange={this.handleChange.bind(this)}
                         value={this.state.slideIndex}
                         >
                           <Tab label="Game Status"   style={{
-                            backgroundColor:  "#BEDB39",
+                            backgroundColor:  "#82A3C0",
                             color:'white'
                           }}
                           value={0} />
                           <Tab
                             style={{
-                              backgroundColor:  "#BEDB39",
+                              backgroundColor:  "#82A3C0",
                               color:'white'
                             }}
                             label="Card" value={1} />
