@@ -271,60 +271,58 @@ class Game extends React.Component {
   render() {
     return (
       <div>
-      <Tabs
-      style={{
-        height: 60,
-        backgroundColor:  '#82A3C0',
-        color:'white'}}
-        onChange={this.handleChange.bind(this)}
-        value={this.state.slideIndex}
-        >
-        <Tab label="Game Status"   style={{
-          backgroundColor:  '#82A3C0',
-          color:'white'
-        }}
-        value={0} />
-        <Tab
+        <Tabs
         style={{
+          height: 60,
           backgroundColor:  '#82A3C0',
-          color:'white'
-        }}
-        label="Card" value={1} />
-        
+          color:'white'}}
+          onChange={this.handleChange.bind(this)}
+          value={this.state.slideIndex}
+        />
+          <Tab label="Game Status"
+            style={{
+              backgroundColor:  '#82A3C0',
+              color:'white'
+            }}
+            value={0}
+          />
+          <Tab
+            style={{
+              backgroundColor:  '#82A3C0',
+              color:'white'
+            }}
+            label="Card" value={1}
+          />
         </Tabs>
         <SwipeableViews
-        index={this.state.slideIndex}
-        onChangeIndex={this.handleChange.bind(this)}
-        >
-        <div style={styles.slide}>
-        
-        <div className="game-status">ROUND { this.props.game.round}</div>
-        <div className="game-status">{this.renderTimer()}</div>
-        <div className="game-status">
-        {`Round time ${4-this.props.game.round} minutes`}
-        
-        
-        </div>
-        </div>
-        <div style={styles.slide}>
-        
-        <PlayerCard
-        style={{margin: 'auto'}}
-        card={this.props.currentPlayer.card}/>
-        </div>
+          index={this.state.slideIndex}
+          onChangeIndex={this.handleChange.bind(this)}
+        />
+          <div style={styles.slide}>
+            <div className="game-status">ROUND { this.props.game.round}</div>
+            <div className="game-status">{this.renderTimer()}</div>
+            <div className="game-status">
+              {`Round time ${4-this.props.game.round} minutes`}
+            </div>
+          </div>
+          <div style={styles.slide}>
+            <PlayerCard
+              style={{margin: 'auto'}}
+              card={this.props.currentPlayer.card}
+            />
+          </div>
         </SwipeableViews>
-        
         <div className='bottom-info'>
-        <div style={{padding:10}}>
-        {this.renderStatusBar()}
+          <div style={{padding:10}}>
+            {this.renderStatusBar()}
+          </div>
+          {this.renderPlayerFeatures()}
         </div>
-        {this.renderPlayerFeatures()}
-        </div>
-        
-        </div>
-      );
-    }
+          
+      </div>
+    );
   }
+}
 
 
 export default createContainer(ownProps => {
