@@ -34,26 +34,27 @@ const style = {
 
 const buttons = {
   // border: '1px solid blue',
-  margin: 'auto',
-  width: '50%'
+  margin: "auto",
+  width: "50%"
   // display: 'flex',
   // flexDirection: 'column',
 };
 
 const button = {
   marginBottom: 30,
-  display: 'flex',
-  width: '100%',
+  display: "flex",
+  width: "100%",
   height: 60
 };
 
 const text = {
   // border: '1px solid blue',
-  fontWeight: '700',
-  fontFamily: 'Work Sans',
-  color: '#FD7400',
-  textAlign: 'center',
+  fontWeight: "700",
+  fontFamily: "Work Sans",
+  color: "#FD7400",
+  textAlign: "center",
   // margin: 'auto',
+
   fontSize: 40,
   marginTop: 15,
 };
@@ -82,7 +83,7 @@ class Root extends Component {
   }
 
   createNewGame() {
-    Meteor.call('games.insert', this.state.playerName, (err, gameCode) => {
+    Meteor.call("games.insert", this.state.playerName, (err, gameCode) => {
       if (!err) {
         localStorage.setItem('name', this.state.playerName);
         localStorage.setItem('gameCode', gameCode);
@@ -120,15 +121,15 @@ class Root extends Component {
       <RaisedButton
         style={{ display: 'flex', margin:'auto', height: 60 }}
         disabled={newActive}
-        label='OK'
+        label="OK"
         backgroundColor={Colors.primary}
-        labelColor='white'
+        labelColor="white"
         keyboardFocused={true}
         onTouchTap={this.createNewGame.bind(this)}
       />,
       <RaisedButton
         style={{ display: 'flex', margin: 'auto', height: 60 }}
-        label='Cancel'
+        label="Cancel"
         // secondary={true}
         onTouchTap={this.handleClose.bind(this)}
       />
@@ -137,10 +138,10 @@ class Root extends Component {
       <RaisedButton
         style={{ display: 'flex', margin:'auto', height: 60 }}
         disabled={joinActive}
-        label='Submit'
-        labelColor='white'
-        label='OK'
-        backgroundColor=  {Colors.primary}
+        label="Submit"
+        labelColor="white"
+        label="OK"
+        backgroundColor={Colors.primary}
         // primary={true}
         keyboardFocused={true}
         onTouchTap={this.joinGame.bind(this)}
@@ -148,8 +149,7 @@ class Root extends Component {
       <Divider />,
       <RaisedButton
         style={{ display: 'flex', margin: 'auto', height: 60 }}
-        label='Cancel'
-        // secondary={true}
+        label="Cancel"
         onTouchTap={this.handleClose.bind(this)}
       />
     ];
@@ -164,28 +164,28 @@ class Root extends Component {
           <div
             style={{
               fontSize: 15,
-              fontFamily: 'Lato',
+              fontFamily: "Lato",
               fontWeight: 400,
-              width: '100%',
+              width: "100%",
               color: Colors.tertiary
             }}
-            >
-              Star Wars Edition
+           >
+             Star Wars Edition
           </div>
         </div>
           
         <div style={buttons}>
           <RaisedButton
             backgroundColor={Colors.primary}
-            labelColor='white'
-            label='NEW GAME'
+            labelColor="white"
+            label="NEW GAME"
             style={button}
             onTouchTap={this.handleOpenNew.bind(this)}
           />
           <RaisedButton
             backgroundColor={Colors.tertiary}
-            labelColor='white'
-            label='NEW GAME'
+            labelColor="white"
+            label="NEW GAME"
             style={button}
             label='JOIN GAME'
             onTouchTap={this.handleOpenJoin.bind(this)}
@@ -194,14 +194,13 @@ class Root extends Component {
         <div>
           <Dialog
             style={{
-              margin: 'auto',
-              textAlign: 'center'
+              margin: "auto",
+              textAlign: "center"
             }}
             actions={actionsNew}
             modal={true}
             open={this.state.newGame}
           >
-            
             <TextField
               name= "player"
               hintText="Your name (required)"
@@ -237,7 +236,6 @@ class Root extends Component {
 
 export default createContainer(() => {
   Meteor.subscribe('games');
-  
   return {
     games: Games.find({}, { sort: { createdAt: -1 } }).fetch()
   };

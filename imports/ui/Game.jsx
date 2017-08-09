@@ -33,14 +33,14 @@ import Timer from './Timer';
 import PlayerCard from './PlayerCard';
 import { Tabs, Tab } from 'material-ui/Tabs';
 // From https://github.com/oliviertassinari/react-swipeable-views
-import SwipeableViews from 'react-swipeable-views';
-import FontIcon from 'material-ui/FontIcon';
+import SwipeableViews from "react-swipeable-views";
+import FontIcon from "material-ui/FontIcon";
 
-import PauseIcon from 'material-ui/svg-icons/av/pause-circle-outline';
-import PlayIcon from 'material-ui/svg-icons/av/play-circle-outline';
+import PauseIcon from "material-ui/svg-icons/av/pause-circle-outline";
+import PlayIcon from "material-ui/svg-icons/av/play-circle-outline";
 
 const iconButtonElement = (
-  <IconButton touch={true} tooltip='more' tooltipPosition='bottom-left'>
+  <IconButton touch={true} tooltip="more" tooltipPosition="bottom-left">
     <MoreVertIcon color={grey400} />
   </IconButton>
 );
@@ -53,8 +53,8 @@ const rightIconMenu = (
 );
 
 const containerStyle = {
-  margin: '0 auto',
-  width: '100%',
+  margin: "0 auto",
+  width: "100%",
   // padding: 20,
   display: 'flex'
 };
@@ -120,7 +120,7 @@ class Game extends React.Component {
     number = Math.floor(number);
     var output = number + '';
     while (output.length < 2) {
-      output = '0' + output;
+      output = "0" + output;
     }
     return output;
   }
@@ -141,7 +141,7 @@ class Game extends React.Component {
         // end of the game, display a friendly message
 
         localStorage.clear();
-        browserHistory.push('/');
+        browserHistory.push("/");
       } else {
         this.setState({
           minutes: `0${3 - this.props.game.round}`,
@@ -157,7 +157,7 @@ class Game extends React.Component {
     if (this.props.game.round <= 2) {
       // pause timer
       if (this.props.game.running) {
-        Meteor.call('games.toggleTimer', this.props.params.gameCode);
+        Meteor.call("games.toggleTimer", this.props.params.gameCode);
       }
     }
   }
@@ -167,7 +167,7 @@ class Game extends React.Component {
   }
 
   startPause() {
-    Meteor.call('games.toggleTimer', this.props.params.gameCode);
+    Meteor.call("games.toggleTimer", this.props.params.gameCode);
   }
   nextGameLabel() {
     if (this.props.game.round > 2) {
@@ -184,7 +184,7 @@ class Game extends React.Component {
           width: 40,
           margin: 10
         }}
-        color='white'
+        color="white"
       />
     );
   }
@@ -216,8 +216,8 @@ class Game extends React.Component {
             onTouchTap={() => this.toggleTimer()}
           />
           <RaisedButton
-            backgroundColor='#BEDB39'
-            labelColor='white'
+            backgroundColor="#BEDB39"
+            labelColor="white"
             style={{
               margin: 'auto',
               display: 'flex',
@@ -281,7 +281,7 @@ class Game extends React.Component {
           value={this.state.slideIndex}
         >
           <Tab
-            label='Game Status'
+            label="Game Status"
             style={{
               backgroundColor: '#BEDB39',
               color: 'white'
@@ -293,7 +293,7 @@ class Game extends React.Component {
               backgroundColor: '#BEDB39',
               color: 'white'
             }}
-            label='Card'
+            label="Card"
             value={1}
           />
         </Tabs>
@@ -302,13 +302,13 @@ class Game extends React.Component {
           onChangeIndex={this.handleChange.bind(this)}
         >
           <div style={styles.slide}>
-            <div className='game-status'>
+            <div className="game-status">
               ROUND {this.props.game.round}
             </div>
-            <div className='game-status'>
+            <div className="game-status">
               {this.renderTimer()}
             </div>
-            <div className='game-status'>
+            <div className="game-status">
               {`Round time ${4 - this.props.game.round} minutes`}
             </div>
           </div>
@@ -320,7 +320,7 @@ class Game extends React.Component {
           </div>
         </SwipeableViews>
 
-        <div className='bottom-info'>
+        <div className="bottom-info">
           <div style={{ padding: 10 }}>
             {this.renderStatusBar()}
           </div>
@@ -336,7 +336,7 @@ export default createContainer(ownProps => {
   const gameFetch = Games.find({ gameCode: gameCode }).fetch();
   const game = gameFetch.length > 0 ? gameFetch[0] : {};
   const currentPlayer = game.player
-     ? game.player.find(player => player.name === localStorage.getItem('name'))
+    ? game.player.find(player => player.name === localStorage.getItem('name'))
     : {};
 
   return { name: localStorage.getItem('name'), game, currentPlayer };
