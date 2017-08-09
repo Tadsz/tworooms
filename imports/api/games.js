@@ -12,7 +12,7 @@ if (Meteor.isServer) {
 }
 
 function shuffle (playersArray) {
-  playersArray = playersArray.sort(() => 0.5 - Math.random());
+  return playersArray.sort(() => 0.5 - Math.random());
 }
 
 Meteor.methods({
@@ -47,7 +47,7 @@ Meteor.methods({
     }
 
     // generate random number between 0 and the number of special card sets
-    let specialFill = Math.round(Math.random()*specialSets.length);
+    let specialFill = Math.round((Math.random()*specialSets.length)/2);
     // number must be less than or equal to half the number of unassigned players
     specialFill = Math.min(specialFill, numPlayers - deck.length);
 
@@ -64,7 +64,7 @@ Meteor.methods({
     const game=(Games.findOne({gameCode:gameCode}));
     let players = game.player;
     // Distribute players in two rooms
-    shuffle(players);
+    players = shuffle(players);
     const currentPlayers = players;
     const index = Math.floor(currentPlayers.length / 2);
     const room1 = currentPlayers.slice(0, index);
@@ -76,9 +76,8 @@ Meteor.methods({
     const deck = Meteor.call('games.createDeck', players.length);
 
     // Distribute cards
-    players = players.map(player => {
+    players.forEach(player => {
       player.card = deck.splice(Math.floor(Math.random()*deck.length),1)[0];
-      return player
     });
 
     // Update game
