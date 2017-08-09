@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { Match } from 'meteor/check';
 
 import { Games } from './games';
-import { specialSets } from '../lib/specialSets';
+import { specialSets, specialSingles } from '../lib/specialSets';
 
 const should = require('chai').should();
 const expect = require('chai').expect;
@@ -48,7 +48,7 @@ if (Meteor.isServer) {
           deck[1].should.equal(1);
           deck.slice(2).should.not.include.members([0,1]);
           if (numPlayers % 2 === 1) {
-            deck.should.include(4);
+            specialSingles.should.include(deck[deck.length-1]);
           }
           specialSets.forEach(el => {
             if (deck.includes(el[0])) { deck.should.include(el[1]) };

@@ -7,10 +7,8 @@ export const specialSets = [
 ];
 
 export const specialSingles = [
-  [
-    91, // gambler
-    92, // mime
-    93, // beholder
-    94, // born leader
-  ]
+  91, // gambler
+  92, // mime
+  93, // beholder
+  94, // born leader
 ];
