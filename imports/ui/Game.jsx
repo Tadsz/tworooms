@@ -293,7 +293,7 @@ class Game extends React.Component {
             }}
             label="Card" value={1}
           />
-        </Tabs>
+
         <SwipeableViews
           index={this.state.slideIndex}
           onChangeIndex={this.handleChange.bind(this)}
@@ -311,7 +311,6 @@ class Game extends React.Component {
               card={this.props.currentPlayer.card}
             />
           </div>
-        </SwipeableViews>
         <div className='bottom-info'>
           <div style={{padding:10}}>
             {this.renderStatusBar()}
