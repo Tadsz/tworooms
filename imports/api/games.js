@@ -42,8 +42,8 @@ Meteor.methods({
     const deck = [0,1];
 
     // Assign gambler if it's the case
-    if (numPlayers%2 === 1){
-      deck.push(4);
+    if (numPlayers % 2 === 1){
+      deck.push(Math.ceil(Math.random()*4)+90);
     }
 
     // generate random number between 0 and the number of special card sets

@@ -53,7 +53,7 @@ export default {
   5: {
     team: blueTeam,
     rol: 'SPY',
-    description: 'YOU ARE THE RED TEAM',
+    description: 'YOU ARE IN THE RED TEAM',
     image: '/../images/empire.svg',
     teamColorDark: blueDark,
     teamColorLight: blueLight,
@@ -61,7 +61,7 @@ export default {
   6: {
     team: redTeam,
     rol: 'SPY',
-    description: 'YOU ARE THE BLUE TEAM',
+    description: 'YOU ARE IN THE BLUE TEAM',
     image: '/../images/rebelion.svg',
     teamColorDark: redDark,
     teamColorLight: redLight,
@@ -70,7 +70,7 @@ export default {
   7: {
     team: blueTeam,
     rol: 'DOCTOR',
-    description: 'Share your identity with the President before the end of the game',
+    description: 'You MUST share your identity with the President before the end of the game',
     image: '/../images/rebelion.svg',
     teamColorDark: blueDark,
     teamColorLight: blueLight,
@@ -78,7 +78,7 @@ export default {
   8: {
     team: redTeam,
     rol: 'ENGINEER',
-    description: 'Share your identity with the Bomber before the end of the game',
+    description: 'You MUST share your identity with the Bomber before the end of the game',
     image: '/../images/empire.svg',
     teamColorDark: redDark,
     teamColorLight: redLight,
@@ -99,6 +99,72 @@ export default {
     image: '/../images/empire.svg',
     teamColorDark: redDark,
     teamColorLight: redLight,
+  },
+  11: {
+    team: blueTeam,
+    rol: 'BULLY',
+    description: `When people agree to color share with you, reveal your card & force them to reveal theirs`,
+    image: '/../images/bully.svg',
+    teamColorDark: blueDark,
+    teamColorLight: blueLight,
+  },
+  12: {
+    team: redTeam,
+    rol: 'BULLY',
+    description: `When people agree to color share with you, reveal your card and force them to reveal theirs`,
+    image: '/../images/bully.svg',
+    teamColorDark: redDark,
+    teamColorLight: redLight,
+  },
+  13: {
+    team: blueTeam,
+    rol: 'ERIS',
+    description: `Tell 2 players they hate each other. Their goal is now to finish in different rooms`,
+    image: '/../images/eris.svg',
+    teamColorDark: blueDark,
+    teamColorLight: blueLight,
+  },
+  14: {
+    team: redTeam,
+    rol: 'CUPID',
+    description: `Tell 2 players they're in love. Their goal is now to finish in the same room`,
+    image: '/../images/cupid.svg',
+    teamColorDark: redDark,
+    teamColorLight: redLight,
+  },
+
+
+  91: {
+    team: greyTeam,
+    rol: 'GAMBLER',
+    description: 'AT THE END OF THE GAME, GUESS IF RED OR BLUE TEAM WON',
+    image: '/../images/javaTheHutt.svg',
+    teamColorDark: greyDark,
+    teamColorLight: greyLight,
+  },
+  92: {
+    team: greyTeam,
+    rol: 'MIME',
+    description: 'DO YOUR BEST TO NOT MAKE ANY NOISE',
+    image: '/../images/ewok.svg',
+    teamColorDark: greyDark,
+    teamColorLight: greyLight,
+  },
+  93: {
+    team: greyTeam,
+    rol: 'BEHOLDER',
+    description: `Tell everyone who you are at the start. Win by discovering any player's color/card. Walk freely between rooms, can't get transferred`,
+    image: '/../images/ewok.svg',
+    teamColorDark: greyDark,
+    teamColorLight: greyLight,
+  },
+  94: {
+    team: greyTeam,
+    rol: 'BORN LEADER',
+    description: 'AT THE END OF THE GAME, GUESS IF RED OR BLUE TEAM WON',
+    image: '/../images/bornLeader.svg',
+    teamColorDark: greyDark,
+    teamColorLight: greyLight,
   },
 
 }
