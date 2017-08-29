@@ -7,7 +7,6 @@
 ## App Screenshots
 ![splash](./images/splash-thumbnail.png "Home Screen")
 ![lobby](./images/lobby-thumbnail.png "Lobby Screen")
-![new game](./images/newgame-thumbnail.png "New Game")
 ![president](./images/president-thumbnail.png "Card View")
 ![blue](./images/blueteam-thumbnail.png "Blue Card")
 
