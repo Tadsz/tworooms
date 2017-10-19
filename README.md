@@ -5,10 +5,10 @@
 - Web app based on the famous social card game Two Rooms and a Boom, created as a responsive app for mobile devices.
 
 ## App Screenshots
-![Alt text](http://i.imgur.com/Vd7ndEK.png "Home Screen")
-![Alt text](http://i.imgur.com/DCc0ll1.png "Lobby Screen")
-![Alt text](http://i.imgur.com/duiqmbv.png "Card View")
-![Alt text](http://i.imgur.com/LuXZuRV.png "Card View")
+![splash](./images/splash-thumbnail.png "Home Screen")
+![lobby](./images/lobby-thumbnail.png "Lobby Screen")
+![president](./images/president-thumbnail.png "Card View")
+![blue](./images/blueteam-thumbnail.png "Blue Card")
 
 
 ## Motivation
